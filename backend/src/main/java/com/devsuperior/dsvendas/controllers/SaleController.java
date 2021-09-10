@@ -23,5 +23,18 @@ public class SaleController {
 		Page<SaleDTO> list = service.findAll(pageable);
 		return ResponseEntity.ok(list)
 	}
+	
+	@GetMapping(value = "/amount-by-seller")
+	public ResponseEntity<ListSaleSumDTO<SaleDTO>> amountGroupedBySeller(){
+		List<SaleSumDTO> list = service.amountGroupedBySeller(pageable);
+		return ResponseEntity.ok(list)
+	}
+	
+	@GetMapping(value = "/sucess-by-seller")
+	public ResponseEntity<ListSaleSuccessDTO<SaleDTO>> successGroupedBySeller(){
+		List<SaleSuccessDTO> list = service.successGroupedBySeller(pageable);
+		return ResponseEntity.ok(list)
+	}
+
 
 }
